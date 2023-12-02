@@ -18,16 +18,17 @@ class IngredientNotifier extends _$IngredientNotifier {
   }
 
   // 材料をAPIから取得
-  void fetchIngredient(int id) async {
+  Future<void> fetchIngredient(int id) async {
     ingredientMap[id] = null;
     addIngredient(await getIngredientFromApi(id));
   }
 
   // 材料をIDで取得
-  Ingredient? byID(int id){
+  Future<Ingredient?> byID(int id) async {
+    // 見つからないときは先に通信してデータを持ってくる
     if (ingredientMap.containsKey(id) == false) {
-      fetchIngredient(id);
+      await fetchIngredient(id); // ここで時間がかかっている
     }
-    return ingredientMap[id];
+    return ingredientMap[id]; // 上の関数に await をつけたので、ちゃんと通信が終わってからここにくる
   }
 }

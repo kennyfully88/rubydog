@@ -7,7 +7,7 @@ part of 'ingredient_provider.dart';
 // **************************************************************************
 
 String _$ingredientNotifierHash() =>
-    r'c2d3a6c6cda1a0918921622056b4aa3a7a22fcd5';
+    r'6580d5c53185a5c805fa684dc92352b6c6eaa64e';
 
 /// See also [IngredientNotifier].
 @ProviderFor(IngredientNotifier)
