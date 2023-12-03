@@ -3,7 +3,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:kondate_app/services/api_service.dart';
 part 'ingredient_provider.g.dart';
 
-@riverpod
+// スプラッシュ画面で準備したデータを残しておくために keepAlive する
+@Riverpod(keepAlive: true)
 class IngredientNotifier extends _$IngredientNotifier {
   Map<int, Ingredient?> ingredientMap = {};
 
