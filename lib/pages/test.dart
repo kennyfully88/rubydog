@@ -7,22 +7,16 @@ class Test extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // ここでは watch
-    // .notifier をつけない
     final ingredients = ref.watch(ingredientNotifierProvider);
 
     return Column(
       //いったん想定していたテストのListViewをいれる。ルビー師匠のElevatedButtonは残すのでとりあえずカラム
       children: [
         ListView.builder(
-          shrinkWrap: true,
-          itemCount: 10,
+          itemCount: ingredients.length,
           itemBuilder: (context, index) {
-            //イメージは、
-            final notifier = ref.read(ingredientNotifierProvider.notifier);
-            notifier.byID(index);
             return ListTile(
-              title: Text(notifier.ingredientMap[index]?.name ?? 'null'),
+              title: Text(ingredients[index]?.name ?? 'null'),
             );
           },
         )

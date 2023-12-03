@@ -22,7 +22,7 @@ class IngredientNotifier extends _$IngredientNotifier {
     ingredientMap[id] = null;
     addIngredient(await getIngredientFromApi(id));
   }
-
+/*
   // 材料をIDで取得
   Future<Ingredient?> byID(int id) async {
     // 見つからないときは先に通信してデータを持ってくる
@@ -30,5 +30,5 @@ class IngredientNotifier extends _$IngredientNotifier {
       await fetchIngredient(id); // ここで時間がかかっている
     }
     return ingredientMap[id]; // 上の関数に await をつけたので、ちゃんと通信が終わってからここにくる
-  }
+  }*/
 }
