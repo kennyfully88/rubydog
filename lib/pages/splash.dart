@@ -49,9 +49,11 @@ class _DataInitView extends HookWidget {
     await Future.delayed(sec3);
 
     // APIからデータを取得
-    await notifier.fetchIngredient(5).catchError((err) {
-      debugPrint('API通信中にエラーが発生しました');
-    });
+    for (int i = 1; i <= 10; i++) {
+      await notifier.fetchIngredient(i).catchError((err) {
+        debugPrint('API通信中にエラーが発生しました');
+      });
+    }
 
     // メイン画面を準備
     final route = MaterialPageRoute(builder: (context) {
@@ -61,6 +63,9 @@ class _DataInitView extends HookWidget {
     // メイン画面へ移動
     if (context.mounted) {
       Navigator.of(context).push(route);
+      for (int i = 1; i <= 10; i++) {
+       debugPrint('材料名：${notifier.ingredientMap[i]!.name}');
+      }
     }
   }
 

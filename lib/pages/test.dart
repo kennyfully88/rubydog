@@ -13,15 +13,14 @@ class Test extends ConsumerWidget {
       //いったん想定していたテストのListViewをいれる。ルビー師匠のElevatedButtonは残すのでとりあえずカラム
       children: [
         ListView.builder(
+          shrinkWrap: true,
           itemCount: ingredients.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(ingredients[index]?.name ?? 'null'),
-            );
+                title: Text(ingredients[index + 1]?.name ?? 'null'));
           },
-        )
-        
-        ,ElevatedButton(
+        ),
+        ElevatedButton(
           onPressed: () {
             // ここでは read
             // .notifier をつける
