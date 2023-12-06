@@ -45,15 +45,21 @@ class _DataInitView extends HookWidget {
     /* ここでいろんな準備処理をする */
 
     // 適当に 3秒まつ (スプラッシュ画面の確認ができたら消してもOK)
-    const sec3 = Duration(seconds: 3);
-    await Future.delayed(sec3);
+    //const sec3 = Duration(seconds: 3);
+    //await Future.delayed(sec3);
 
-    // APIからデータを取得
+    await notifier.fetchInitIngredient().catchError((err) {
+      debugPrint(err);
+    });
+    debugPrint('Splash画面：${notifier.ingredientMap.toString()}');
+
+    // PokeAPIからingredientデータを取得
+    /*
     for (int i = 1; i <= 10; i++) {
       await notifier.fetchIngredient(i).catchError((err) {
         debugPrint('API通信中にエラーが発生しました');
       });
-    }
+    }*/
 
     // メイン画面を準備
     final route = MaterialPageRoute(builder: (context) {
@@ -63,9 +69,9 @@ class _DataInitView extends HookWidget {
     // メイン画面へ移動
     if (context.mounted) {
       Navigator.of(context).push(route);
-      for (int i = 1; i <= 10; i++) {
+      /*for (int i = 1; i <= 10; i++) {
        debugPrint('材料名：${notifier.ingredientMap[i]!.name}');
-      }
+      }*/
     }
   }
 

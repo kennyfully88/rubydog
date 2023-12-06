@@ -84,9 +84,9 @@ class _EditIngredientPageState extends State<EditIngredientPage> {
   }
 
   void _saveChanges() {
-    print('新しい材料名: ${_ingredientNameController.text}');
-    print('新しいカテゴリー: $_selectedCategory');
-    print('新しい単位: ${_unitController.text}');
+    debugPrint('新しい材料名: ${_ingredientNameController.text}');
+    debugPrint('新しいカテゴリー: $_selectedCategory');
+    debugPrint('新しい単位: ${_unitController.text}');
   }
 
   @override
