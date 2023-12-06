@@ -1,5 +1,5 @@
 class Ingredient {
-  int id;
+  num id;
   String name;
   String category;
   String unit;
@@ -15,8 +15,8 @@ class Ingredient {
     return Ingredient(
       id: json['id'],
       name: json['name'],
-      category: json['types'][0]['type']['name'],
-      unit: json['name'],
+      category: json['category'],
+      unit: json['unit'],
     );
   }
 }
